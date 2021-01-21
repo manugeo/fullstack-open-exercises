@@ -1,1 +1,0 @@
-const sample = 'This is a sample text file';
