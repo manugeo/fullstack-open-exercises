@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const Statistic = ({name, value}) => <p>{name} {value}</p>;
+const Statistic = ({ name, value }) => <tr><td>{name}</td><td>{value}</td></tr>;
 
 const Statistics = (props) => {
-  const {good, neutral, bad} = props;
+  const { good, neutral, bad } = props;
   const all = (good + neutral + bad);
   const average = ((good - bad) / all);
   const goodPercentage = Math.round(((good / all) * 100) * 100) / 100;
@@ -15,17 +15,21 @@ const Statistics = (props) => {
     <div className="statistics">
       <h4 className="heading">statistics</h4>
       <br />
-      <Statistic name="good" value={good} />
-      <Statistic name="neutral" value={neutral} />
-      <Statistic name="bad" value={bad} />
-      <Statistic name="all" value={all} />
-      <Statistic name="average" value={average} />
-      <Statistic name="positive" value={goodPercentage} />
+      <table>
+        <tbody>
+          <Statistic name="good" value={good} />
+          <Statistic name="neutral" value={neutral} />
+          <Statistic name="bad" value={bad} />
+          <Statistic name="all" value={all} />
+          <Statistic name="average" value={average} />
+          <Statistic name="positive" value={goodPercentage} />
+        </tbody>
+      </table>
     </div>
   );
 };
 
-const Button = ({text, onClick}) => <button onClick={onClick}>{text}</button>;
+const Button = ({ text, onClick }) => <button onClick={onClick}>{text}</button>;
 
 const App = () => {
   // save clicks of each button to its own state
