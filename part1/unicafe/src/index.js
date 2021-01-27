@@ -7,6 +7,8 @@ const Statistics = (props) => {
   const average = ((good - bad) / all);
   const goodPercentage = Math.round(((good / all) * 100) * 100) / 100;
 
+  if (all === 0) return null;
+
   return (
     <div className="statistics">
       <h4 className="heading">statistics</h4>
